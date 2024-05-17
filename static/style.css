@@ -1,0 +1,140 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9; /* Original: #141411; Dark background */
+    margin: 0;
+    padding: 0;
+    color: #333; /* Original: #ffffff; White text */
+}
+
+/* Header styling */
+header {
+    background-color: #4CAF50; /* Original: rgba(39, 61, 180, 0.5); Semi-transparent blue */
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 4vh;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+
+/* Add animation to the header icon */
+header i {
+    margin-right: 10px;
+    animation: pulse 2s infinite; /* Apply pulse animation infinitely */
+}
+
+/* Define pulse animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Main content styling */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 140px); /* Adjust based on header and footer height */
+    margin-bottom: 10vh;
+}
+
+.video-container,
+.upload-container,
+.about-section {
+    width: 90%;
+    max-width: 600px; /* Limit container width for better readability */
+    padding: 20px;
+    background-color: white; /* Original: rgba(255, 255, 255, 0.2); Semi-transparent white */
+    backdrop-filter: blur(10px); /* Apply blur effect for glass morphism */
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.video-container {
+    background-color: white; /* Original: rgba(255, 255, 255, 0.1); Semi-transparent white for video container */
+}
+
+#video_feed {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.upload-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-container input[type="file"],
+.upload-container input[type="text"],
+.upload-container button {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #8d8d8d; /* Black border */
+    border-radius: 10px; /* Increased border radius for smoother corners */
+    width: calc(100% - 20px); /* Adjust width for consistency */
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(5px); /* Apply blur effect for input elements */
+    color: #000; /* White text */
+}
+
+
+/* Add animation to the upload button */
+.upload-container button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background-color 0.3s;
+}
+
+/* Define shake animation */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.upload-container button:hover {
+    background-color: #45a049;
+}
+
+.upload-container button:active {
+    animation: shake 0.5s; /* Apply shake animation when button is clicked */
+}
+
+
+/* About section */
+.about-section {
+    text-align: center;
+}
+
+/* Footer styling */
+footer {
+    background-color: #333; /* Original: rgba(20, 20, 17, 0.8); Semi-transparent dark color */
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
