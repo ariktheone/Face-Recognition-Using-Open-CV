@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition</title>
+    <!-- Include CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <h1><i class="fas fa-camera"></i> Face Recognition</h1>
+    </header>
+    <main>
+        <div class="video-container">
+            <img id="video_feed" src="{{ url_for('video_feed') }}" alt="Video Feed">
+        </div>
+        <div class="upload-container">
+            <h2>Upload Your Image</h2>
+            <p>Choose an image from your device and enter your name to upload.</p>
+            <input type="file" id="imageUpload" accept="image/*" required>
+            <input type="text" id="imageName" placeholder="Enter Name" required>
+            <button id="uploadButton">Upload Image</button>
+        </div>
+        <div class="about-section">
+            <h2>About Face Recognition</h2>
+            <p>This face recognition application uses advanced computer vision techniques to detect faces in real-time video streams. You can also upload your own images for recognition. Try it out!</p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2024 Face Recognition App. All rights reserved to @Arijit Mondal.</p>
+    </footer>
+    <!-- Include JavaScript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
