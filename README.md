@@ -1,6 +1,7 @@
 # Face Recognition Project
 
-![Face Recognition](img1.png) ![Face Recognition](img2.png)
+![Face Recognition](img1.png) 
+![Face Recognition](img2.png)
 
 ## Introduction
 Welcome to our cutting-edge Face Recognition Project! Leveraging Flask, OpenCV, and the face_recognition library, we've developed an innovative real-time face recognition system. Users can seamlessly upload images for recognition and witness instant results as the system overlays recognized names onto the live video feed.
