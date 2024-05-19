@@ -1,6 +1,7 @@
 # Face Recognition Project
 
-![Face Recognition](img1.png) 
+![Face Recognition](img1.png)
+________________________________________________________
 ![Face Recognition](img2.png)
 
 ## Introduction
