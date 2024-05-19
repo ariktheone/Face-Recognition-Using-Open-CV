@@ -34,8 +34,6 @@ The performance of the face recognition system can be evaluated based on accurac
 ## Contributors
 - Arijit Mondal (Developer)
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Acknowledgements
 - Special thanks to the developers of Flask, OpenCV, and face_recognition library for their contributions.
