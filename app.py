@@ -18,6 +18,9 @@ known_face_names = []
 
 # Function to load images and add to the known faces
 def load_and_encode_all_images():
+    global known_face_encodings, known_face_names
+    known_face_encodings = []
+    known_face_names = []
     for filename in os.listdir(app.config['UPLOAD_FOLDER']):
         if filename.endswith('.jpg') or filename.endswith('.jpeg') or filename.endswith('.png'):
             name = os.path.splitext(filename)[0]
@@ -39,28 +42,20 @@ def recognize_faces(frame):
         matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
         name = "Unknown"
 
-        face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
-        best_match_index = np.argmin(face_distances)
-        if matches[best_match_index]:
-            # Assign the name of the uploaded image to the detected face
-            name = known_face_names[best_match_index]
+        if len(known_face_encodings) > 0:
+            face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
+            if len(face_distances) > 0:
+                best_match_index = np.argmin(face_distances)
+                if matches[best_match_index]:
+                    name = known_face_names[best_match_index]
 
-        # Get the width and height of the text
-        (text_width, text_height), _ = cv2.getTextSize(name, cv2.FONT_HERSHEY_SIMPLEX, 1.2, 2)  # Adjust font size here
-
-        # Draw a purple rectangle behind the text, adjust padding based on text size
+        (text_width, text_height), _ = cv2.getTextSize(name, cv2.FONT_HERSHEY_SIMPLEX, 1.2, 2)
         cv2.rectangle(frame, (left, bottom), (left + text_width + 12, bottom + text_height + 31), (0, 0, 0), cv2.FILLED)
         cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 0), 1)
-        
-        # Change the font to FONT_HERSHEY_SIMPLEX
         font = cv2.FONT_HERSHEY_SIMPLEX
-        
-        # Put the name on the frame with the new font and size
-        cv2.putText(frame, name, (left + 6, bottom + text_height + 18), font, 1.2, (255, 255, 255), 2)  # Adjust position and thickness
+        cv2.putText(frame, name, (left + 6, bottom + text_height + 18), font, 1.2, (255, 255, 255), 2)
 
     return frame
-
-
 
 def video_stream():
     video_capture = cv2.VideoCapture(0)
@@ -85,13 +80,13 @@ def video_feed():
 @app.route('/upload_image', methods=['POST'])
 def upload_image():
     if 'image' not in request.files or 'name' not in request.form:
-        return redirect(request.url)
+        return "No image or name provided", 400
 
     file = request.files['image']
     name = request.form['name']
 
     if file.filename == '':
-        return redirect(request.url)
+        return "No selected file", 400
 
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
@@ -100,15 +95,11 @@ def upload_image():
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
         
-        # Reload the image and encode it
-        #load_and_encode_image(file_path, name)
+        load_and_encode_all_images()
         
-        # Redirect to the index page
-        return redirect(url_for('index'))
+        return "Image uploaded successfully", 200
     else:
-        return "Unsupported file type. Only PNG, JPG, and JPEG files are allowed."
-
-
+        return "Unsupported file type. Only PNG, JPG, and JPEG files are allowed.", 400
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in {'png', 'jpg', 'jpeg'}

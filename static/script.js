@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     uploadButton.addEventListener("click", function() {
         let file = imageUpload.files[0];
         let imageName = document.getElementById("imageName").value;
-        
+
         // Check if a file is selected
         if (file) {
             // Validate file type
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 let formData = new FormData();
                 formData.append("image", file);
                 formData.append("name", imageName);
-                
+
                 // Send the form data to the server using fetch
                 fetch("/upload_image", {
                     method: "POST",
@@ -24,15 +24,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 })
                 .then(response => {
                     if (response.ok) {
-                        // Clear input fields on successful upload
-                        imageUpload.value = null;
-                        document.getElementById("imageName").value = "";
                         return response.text();
                     }
                     throw new Error("Network response was not ok.");
                 })
                 .then(result => {
                     console.log(result);
+                    // Clear input fields on successful upload
+                    imageUpload.value = "";
+                    document.getElementById("imageName").value = "";
                     // Show alert message on successful upload
                     alert("Image uploaded successfully!");
                 })
@@ -42,9 +42,11 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 alert("Unsupported file type. Only PNG, JPG, and JPEG files are allowed.");
                 // Clear input fields if file type is not supported
-                imageUpload.value = null;
+                imageUpload.value = "";
                 document.getElementById("imageName").value = "";
             }
+        } else {
+            alert("No file selected. Please choose an image to upload.");
         }
     });
 });
