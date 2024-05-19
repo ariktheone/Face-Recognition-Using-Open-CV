@@ -2,7 +2,7 @@
 
 <div style="display: flex; justify-content: space-between;">
     <img src="img2.png" alt="Face Recognition" style="width: 45%;">
-    <img src="img1.png" alt="Face Recognition" style="width: 45%;">
+    <img src="img1.png" alt="Face Recognition" style="height: 45%;">
 </div>
 
 ## Introduction
