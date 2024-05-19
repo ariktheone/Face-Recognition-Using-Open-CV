@@ -1,8 +1,9 @@
 # Face Recognition Project
 
-![Face Recognition](img2.png)
-________________________________________________________
-![Face Recognition](img1.png)
+<div style="display: flex; justify-content: space-between;">
+    <img src="img2.png" alt="Face Recognition" style="width: 45%;">
+    <img src="img1.png" alt="Face Recognition" style="width: 45%;">
+</div>
 
 ## Introduction
 Welcome to our cutting-edge Face Recognition Project! Leveraging Flask, OpenCV, and the face_recognition library, we've developed an innovative real-time face recognition system. Users can seamlessly upload images for recognition and witness instant results as the system overlays recognized names onto the live video feed.
@@ -20,11 +21,14 @@ Welcome to our cutting-edge Face Recognition Project! Leveraging Flask, OpenCV, 
 
 ## Usage
 1. **Explore the Homepage**: Dive into the homepage where the live video feed awaits, showcasing the system's prowess in real-time face recognition.
-2. **Upload Custom Images**: Engage further by uploading custom images for recognition, initiating a seamless process guided by intuitive instructions.
+2. **Upload Custom Images for Training**: Engage further by uploading custom images for recognition and training the model. This feature allows users to contribute to the model's training process, improving accuracy over time.
+
+To upload an image, click the button below:
+<input type="file" accept="image/*">
 
 ## Features
 - **Real-time Face Recognition**: Seamlessly integrated into webcam feeds, ensuring instant and accurate identification.
-- **User-friendly Image Upload**: Enhance the system's adaptability and versatility with intuitive image uploading functionality.
+- **User-friendly Image Upload for Training**: Enhance the system's adaptability and accuracy by allowing users to upload custom images for model training.
 - **Dynamic Display**: Recognized names overlaid on the video feed provide clear and concise feedback to users.
 
 ## Performance Evaluation
