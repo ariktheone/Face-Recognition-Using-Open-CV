@@ -41,4 +41,4 @@ The performance of our advanced face recognition system is meticulously evaluate
 - Inspiration drawn from a myriad of tutorials, research papers, and industry resources enrich our project with invaluable insights and perspectives.
 
 ## Contact
-For inquiries, feedback, or collaboration opportunities, reach out to Arijit Mondal via email at ![Emial](arijitmondal200430@gmail.com)
+For inquiries, feedback, or collaboration opportunities, reach out to Arijit Mondal via email at [arijitmondal200430@gmail.com](arijitmondal200430@gmail.com)
